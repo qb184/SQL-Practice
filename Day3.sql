@@ -118,4 +118,13 @@ inner join Products p
 on dt.ProductID = p.ProductID
 where dt."total" <=3
 
+--16 
+CREATE table distance (city varchar(15) , distance int )
+insert into distance values ('A', 80)
+insert into distance values ('B', 150)
+insert into distance values ('C', 180)
+insert into distance values ('D', 220)
 
+select d2.City + '-'+ d1.City as "City", d2.Distance - d1.Distance as "Distance"
+From distance d1 cross join distance d2
+where d2.Distance - d1.Distance > 0
